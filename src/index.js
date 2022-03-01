@@ -36,8 +36,8 @@ store.observe(
 
 //get patches from server and dispatch
 socket.on("change", (path, patch) => {
-  // console.log(patch);
-  store.dispatch(remote.applyRemote(path, patch));
+  console.log(patch, "patch");
+  store.dispatch(remote.applyRemote(path.replace("/todos", ""), patch));
 });
 
 ReactDOM.render(

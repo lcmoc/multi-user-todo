@@ -32,6 +32,7 @@ io.on("connection", async (socket) => {
 
   //patches recieved from the client
   socket.on("change", (path, change) => {
+    console.log('change', change);
     change.origin = socket.id;
 
     //resolves conflicts internally

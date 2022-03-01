@@ -8,7 +8,6 @@ import { useDoc } from "@syncstate/react";
 function App() {
   const todoPath = "/todos";
   const [todos, setTodos] = useDoc(todoPath);
-  console.log('xxx', todos);
 
   //generate unique id
   const keyGenerator = () => "_" + Math.random().toString(36).substr(2, 9);
@@ -25,9 +24,10 @@ function App() {
   };
 
   const todoList = todos.map((todoItem, index) => {
+    console.log('todoItem', todoPath, index);
     return (
       <li key={todoItem.index} className="list-group-item">
-        <TodoItem todo={todoItem} todoItemPath={todoPath + "/" + index} />
+        <TodoItem todo={todoItem} todoItemPath={todoPath + "/" + [index]} />
       </li>
     );
   });
